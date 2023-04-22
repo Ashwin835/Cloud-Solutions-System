@@ -39,7 +39,7 @@ CREATE TABLE CUSTOMER_ACCOUNTS
       Subscription_ID REFERENCES SUBSCRIPTION_PLAN(Subscription_ID) NOT NULL,
       CONSTRAINT sub_pk PRIMARY KEY(Customer_ID, Subscription_ID));
       
-      
+      Commit;
       
       
       --ADD DATA
@@ -74,7 +74,7 @@ CREATE TABLE CUSTOMER_ACCOUNTS
       INSERT INTO SUBSCRIBES VALUES(4895749444, 7398373746);
       
       
-      
+      Commit;
       
       /*USE #1: Given subscription plans, any company can find out what other
       companies are subscribed to a certain. In this example we can see
