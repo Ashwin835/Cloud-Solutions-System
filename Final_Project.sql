@@ -80,8 +80,7 @@ CREATE TABLE CUSTOMER_ACCOUNTS
       companies are subscribed to a certain. In this example we can see
                 only google is subscribed to the IaaS plan, but coca cola
                 is not subscribed to it. This can be used for companies to
-                gain insights on what other companies are using for 
-                competition purposes*/
+                gain insights on what other companies are using*/
       SELECT c.Company_Name FROM SUBSCRIPTION_PLAN a INNER JOIN SUBSCRIBES b
       ON (a.subscription_id=b.subscription_id) INNER JOIN
       CUSTOMER_ACCOUNTS c ON (b.customer_id=c.customer_id)
