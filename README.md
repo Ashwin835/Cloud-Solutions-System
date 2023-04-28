@@ -1,4 +1,4 @@
-# Duolc-Cloud-Solutions
+# Cloud-Solutions System
 Final Project for CIS 4331
 
 A database for storing information on a company's cloud subscriptions, and other information such as accounts and tracking. 
