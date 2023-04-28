@@ -76,11 +76,9 @@ CREATE TABLE CUSTOMER_ACCOUNTS
       
       Commit;
       
-      /*USE #1: Given subscription plans, any company can find out what other
-      companies are subscribed to a certain. In this example we can see
-                only google is subscribed to the IaaS plan, but coca cola
-                is not subscribed to it. This can be used for companies to
-                gain insights on what other companies are using*/
+      /*USE #1: Given subscription plans, we can find out what other
+      companies are subscribed to
+      */
       SELECT c.Company_Name FROM SUBSCRIPTION_PLAN a INNER JOIN SUBSCRIBES b
       ON (a.subscription_id=b.subscription_id) INNER JOIN
       CUSTOMER_ACCOUNTS c ON (b.customer_id=c.customer_id)
@@ -90,10 +88,14 @@ CREATE TABLE CUSTOMER_ACCOUNTS
       
       
       
-      /*Use #2: Any company is able to get a description of what
-        each cloud subscription really is and offers, so that each company
-        can easily decide which cloud service is the most 
-        acceptable for their needs*/
-      SELECT a.subscription_name, b.service_description FROM subscription_plan
-      a INNER JOIN cloud_service b ON (a.service_id=b.service_id);
+      /*Use #2: We are able to see the descriptions that other companies
+      are subscibed to*/
+      SELECT a.company_name, c.subscription_name, d.service_description
+      FROM customer_accounts a INNER JOIN subscribes
+      b on (a.customer_id=b.customer_id)
+      INNER JOIN subscription_plan c ON
+      (b.subscription_id=c.subscription_id)
+      INNER JOIN cloud_service d ON
+      (c.service_id=d.service_id)
+      ORDER BY a.company_name;
        
